@@ -29,7 +29,9 @@ public class SampleActivity extends Activity {
         setContentView(R.layout.activity_sample);
         ActionBar ab = getActionBar();
         ab.setDisplayHomeAsUpEnabled(true);
+        ab.setDisplayUseLogoEnabled(false);
         ab.setHomeButtonEnabled(true);
+        ab.setTitle("三年级二班");
 
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerList = (ListView) findViewById(R.id.navdrawer);

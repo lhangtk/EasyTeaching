@@ -3,4 +3,6 @@
     <color name="ldrawer_color">#FFFFFF</color>
     <color name="actionbar_color">#bf360c</color>
     <color name="drawer_arrow_second_color">#303f9f</color>
+
+    <color name="actionbar_tittle_color">#FFFFFF</color>
 </resources>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="SampleActivityTheme" parent="@android:style/Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+    </style>
+    <style name="MyActionBar" parent="@android:style/Widget.Holo.ActionBar">
+        <item name="android:displayOptions"></item>
+        <item name="android:background">@color/actionbar_color</item>
+        <item name="android:titleTextStyle">@style/MyTextView</item>
+    </style>
+    <style name="MyTextView">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/actionbar_tittle_color</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:paddingLeft">100dp</item>
+    </style>
+</resources>
