@@ -40,16 +40,19 @@
             android:orientation="horizontal"
             android:layout_alignParentBottom="true">
         <Button
+                android:id="@+id/main_contacts"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="通讯录"/>
         <Button
+                android:id="@+id/main_class_act"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="班级活动"/>
         <Button
+                android:id="@+id/main_photos"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -61,6 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/main_title"
-            android:layout_above="@+id/bottom_bar">
+            android:layout_above="@+id/bottom_bar"
+            android:background="#fff000">
     </FrameLayout>
 </RelativeLayout>
