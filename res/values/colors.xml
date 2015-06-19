@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="ldrawer_color">#FFFFFF</color>
-    <color name="actionbar_color">#bf360c</color>
-    <color name="drawer_arrow_second_color">#303f9f</color>
-
-    <color name="actionbar_tittle_color">#FFFFFF</color>
+    <color name="ab_bg_color">#FFD1A4</color>
+    <color name="ab_text_color">#333333</color>
 </resources>

@@ -22,7 +22,7 @@ public abstract class DrawerArrowDrawable extends Drawable {
     public DrawerArrowDrawable(Context context) {
         this.context = context;
         this.mPaint.setAntiAlias(true);
-        this.mPaint.setColor(context.getResources().getColor(R.color.ldrawer_color));
+        this.mPaint.setColor(Color.parseColor("#FFFFFF"));
         this.mSize = context.getResources().getDimensionPixelSize(R.dimen.ldrawer_drawableSize);
         this.mBarSize = context.getResources().getDimensionPixelSize(R.dimen.ldrawer_barSize);
         this.mTopBottomArrowSize = context.getResources().getDimensionPixelSize(R.dimen.ldrawer_topBottomBarArrowSize);

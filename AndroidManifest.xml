@@ -12,15 +12,23 @@
     <application
             android:name=".ETApplication"
             android:label="@string/app_name"
-            android:icon="@drawable/ic_launcher">
+            android:icon="@drawable/ic_launcher"
+            android:theme="@android:style/Theme.Holo.Light.NoActionBar"
+            >
         <activity
-                android:name=".view.SampleActivity"
+                android:name=".view.LoginActivity"
                 android:label="@string/app_name"
-                android:theme="@style/SampleActivityTheme">
+                android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".view.GetPasswordActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".view.RegisterActivity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".view.MainActivity"
+                  android:screenOrientation="portrait"/>
     </application>
 </manifest>
