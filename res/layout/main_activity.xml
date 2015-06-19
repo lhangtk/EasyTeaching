@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:orientation="vertical"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
     <!-- 顶部导航 -->
     <RelativeLayout
             android:layout_width="fill_parent"
-            android:id="@+id/dynamic_title"
+            android:id="@+id/main_title"
             android:layout_height="@dimen/actionbar_height"
             android:background="@color/ab_bg_color">
 
@@ -27,12 +27,40 @@
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:gravity="center"
-                android:text="点点点"
+                android:text="主页面"
                 android:textColor="@color/ab_text_color"
                 android:textSize="20sp"/>
     </RelativeLayout>
-<TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="主页面"/>
-</LinearLayout>
+
+    <LinearLayout
+            android:id="@+id/bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/actionbar_height"
+            android:background="@color/ab_bg_color"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true">
+        <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="通讯录"/>
+        <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="班级活动"/>
+        <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="相册"/>
+    </LinearLayout>
+
+    <FrameLayout
+            android:id="@+id/main_content"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/main_title"
+            android:layout_above="@+id/bottom_bar">
+    </FrameLayout>
+</RelativeLayout>

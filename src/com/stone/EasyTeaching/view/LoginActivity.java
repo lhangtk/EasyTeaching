@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import com.loopj.android.http.AsyncHttpClient;
+import com.stone.EasyTeaching.ETApplication;
 import com.stone.EasyTeaching.R;
 import com.stone.EasyTeaching.utilities.MyRelativeLayout;
 import com.stone.EasyTeaching.utilities.OnSizeChangedListener;
@@ -15,6 +17,12 @@ import com.stone.EasyTeaching.utilities.OnSizeChangedListener;
  * Created by hangli2 on 2015/6/19.
  */
 public class LoginActivity extends Activity implements View.OnClickListener{
+    /**APP*/
+    private ETApplication app;
+    /**
+     * 异步请求Client
+     */
+    private AsyncHttpClient client;
     /**登录按钮*/
     private Button btnLogin;
     /**注册按钮*/
@@ -29,6 +37,8 @@ public class LoginActivity extends Activity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        app = (ETApplication) getApplication();
+        client = app.getClient();
         init();
     }
 
