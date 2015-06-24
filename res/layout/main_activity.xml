@@ -1,70 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
-    <!-- 顶部导航 -->
+
     <RelativeLayout
-            android:layout_width="fill_parent"
-            android:id="@+id/main_title"
-            android:layout_height="@dimen/actionbar_height"
-            android:background="@color/ab_bg_color">
+            android:id="@+id/main"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-        <Button
-                android:layout_width="wrap_content"
-                android:layout_height="22dp"
-                android:layout_marginLeft="10dp"
-                android:background="@null"
-                android:textSize="18sp"
-                android:id="@+id/btn_back"
-                android:text="返回"
-                android:textColor="#ffffff"
-                android:layout_centerVertical="true"/>
-
-        <TextView
-                android:id="@+id/following_layout_title"
+        <!-- 顶部导航 -->
+        <RelativeLayout
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:gravity="center"
-                android:text="主页面"
-                android:textColor="@color/ab_text_color"
-                android:textSize="20sp"/>
+                android:id="@+id/main_title"
+                android:layout_height="@dimen/actionbar_height"
+                android:background="@color/ab_bg_color">
+
+            <Button
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="10dp"
+                    android:background="@drawable/ic_menu"
+                    android:textSize="18sp"
+                    android:id="@+id/top_left"
+                    android:textColor="#ffffff"
+                    android:layout_centerVertical="true"/>
+
+            <TextView
+                    android:id="@+id/following_layout_title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:gravity="center"
+                    android:text="主页面"
+                    android:textColor="@color/ab_text_color"
+                    android:textSize="20sp"/>
+        </RelativeLayout>
+
+        <LinearLayout
+                android:id="@+id/bottom_bar"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/actionbar_height"
+                android:background="@color/ab_bg_color"
+                android:orientation="horizontal"
+                android:layout_alignParentBottom="true">
+
+            <Button
+                    android:id="@+id/main_contacts"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="通讯录"/>
+
+            <Button
+                    android:id="@+id/main_class_act"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="班级活动"/>
+
+            <Button
+                    android:id="@+id/main_photos"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="相册"/>
+        </LinearLayout>
+
+        <FrameLayout
+                android:id="@+id/main_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/main_title"
+                android:layout_above="@+id/bottom_bar"
+                android:background="#fff000">
+        </FrameLayout>
     </RelativeLayout>
 
     <LinearLayout
-            android:id="@+id/bottom_bar"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/actionbar_height"
-            android:background="@color/ab_bg_color"
-            android:orientation="horizontal"
-            android:layout_alignParentBottom="true">
-        <Button
-                android:id="@+id/main_contacts"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="通讯录"/>
-        <Button
-                android:id="@+id/main_class_act"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="班级活动"/>
-        <Button
-                android:id="@+id/main_photos"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="相册"/>
-    </LinearLayout>
-
-    <FrameLayout
-            android:id="@+id/main_content"
-            android:layout_width="match_parent"
+            android:id="@+id/menu"
+            android:layout_width="200px"
             android:layout_height="match_parent"
-            android:layout_below="@+id/main_title"
-            android:layout_above="@+id/bottom_bar"
-            android:background="#fff000">
-    </FrameLayout>
+            android:orientation="vertical"
+            android:layout_alignParentStart="true"
+            android:background="#FFFFFF"
+            android:visibility="gone">
+        <TextView
+                android:id="@+id/info"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#333333"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_margin="10dp"
+                android:text="个人"/>
+        <TextView
+                android:id="@+id/setting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#333333"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_margin="10dp"
+                android:text="设置"/>
+        <TextView
+                android:id="@+id/about"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="#333333"
+                android:textSize="20sp"
+                android:gravity="center"
+                android:layout_margin="10dp"
+                android:text="关于"/>
+    </LinearLayout>
 </RelativeLayout>

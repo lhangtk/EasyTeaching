@@ -1,11 +1,16 @@
 package com.stone.EasyTeaching.view;
 
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.app.Activity;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import com.loopj.android.http.AsyncHttpClient;
 import com.stone.EasyTeaching.ETApplication;
 import com.stone.EasyTeaching.R;
@@ -29,6 +34,17 @@ public class MainActivity extends Activity implements View.OnClickListener{
     private Button btnContacts;
     /**相册按钮*/
     private Button btnPhotos;
+    /**菜单键*/
+    private Button btnMenu;
+    /*菜单容器*/
+    private LinearLayout layoutMenu;
+    /*页面容器*/
+    private RelativeLayout layoutMain;
+    /*页面宽*/
+    private int mainW;
+    /*页面高*/
+    private int mainH;
+
     /**
      * 用于对Fragment进行管理
      */
@@ -63,10 +79,23 @@ public class MainActivity extends Activity implements View.OnClickListener{
         btnClassAct = (Button) findViewById(R.id.main_class_act);
         btnContacts = (Button) findViewById(R.id.main_contacts);
         btnPhotos = (Button) findViewById(R.id.main_photos);
+        btnMenu = (Button) findViewById(R.id.top_left);
+        layoutMenu = (LinearLayout) findViewById(R.id.menu);
+        layoutMain = (RelativeLayout) findViewById(R.id.main);
 
         btnClassAct.setOnClickListener(this);
         btnContacts.setOnClickListener(this);
         btnPhotos.setOnClickListener(this);
+        btnMenu.setOnClickListener(this);
+        layoutMain.setOnClickListener(this);
+        //在这里获取视图的宽和高，使用这种方式是保证是视图加载完成之后的正确的值
+        layoutMain.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mainW = layoutMain.getWidth();
+                mainH = layoutMain.getHeight();
+            }
+        },200);
     }
 
 
@@ -74,13 +103,33 @@ public class MainActivity extends Activity implements View.OnClickListener{
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.main_class_act:
+                menuBack();
                 setTabSelection(0);
                 break;
             case R.id.main_contacts:
+                menuBack();
                 setTabSelection(1);
                 break;
             case R.id.main_photos:
+                menuBack();
                 setTabSelection(2);
+                break;
+            case R.id.top_left:
+                if (layoutMenu.getVisibility() == View.GONE){
+                    layoutMenu.setVisibility(View.VISIBLE);
+                    layoutMenu.setAnimation(AnimationUtils.loadAnimation(MainActivity.this,R.anim.menu_in));
+                    //将主视图右移
+                    ObjectAnimator moveRight = ObjectAnimator.ofFloat(layoutMain,"translationX",0f,200f);
+                    AnimatorSet animatorSet = new AnimatorSet();
+                    animatorSet.play(moveRight);
+                    animatorSet.setDuration(200);
+                    animatorSet.start();
+                }else {
+                    menuBack();
+                }
+                break;
+            case R.id.main:
+                menuBack();
                 break;
         }
     }
@@ -158,6 +207,22 @@ public class MainActivity extends Activity implements View.OnClickListener{
         }
         if (photosFragment != null) {
             transaction.hide(photosFragment);
+        }
+    }
+
+    /**
+     * 收起菜单
+     */
+    private void menuBack(){
+        if (layoutMenu.getVisibility() == View.VISIBLE){//不加判断就是作死
+            layoutMenu.setVisibility(View.GONE);
+            layoutMenu.setAnimation(AnimationUtils.loadAnimation(MainActivity.this,R.anim.menu_out));
+            //将主视图左移
+            ObjectAnimator moveLeft = ObjectAnimator.ofFloat(layoutMain,"translationX",200f,0f);
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.play(moveLeft);
+            animatorSet.setDuration(200);
+            animatorSet.start();
         }
     }
 }

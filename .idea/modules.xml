@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EasyTeaching.iml" filepath="$PROJECT_DIR$/EasyTeaching.iml" />
+      <module fileurl="file://E:/intellijidea/anim/anim.iml" filepath="E:/intellijidea/anim/anim.iml" />
     </modules>
   </component>
 </project>
