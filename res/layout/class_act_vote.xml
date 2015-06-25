@@ -6,12 +6,4 @@
               android:layout_height="match_parent"
               android:background="#FFFFFF">
 
-    <GridView
-            android:id="@+id/album_grid"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:overScrollMode="never"
-            android:numColumns="2"
-            android:stretchMode="columnWidth">
-    </GridView>
 </LinearLayout>

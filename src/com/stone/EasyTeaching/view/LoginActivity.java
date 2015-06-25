@@ -1,9 +1,12 @@
 package com.stone.EasyTeaching.view;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -33,12 +36,16 @@ public class LoginActivity extends Activity implements View.OnClickListener{
     private MyRelativeLayout myRelative;
     /**头部*/
     private LinearLayout topLayout;
+
+    private InputMethodManager manager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         app = (ETApplication) getApplication();
         client = app.getClient();
+        manager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         init();
     }
 
@@ -84,5 +91,15 @@ public class LoginActivity extends Activity implements View.OnClickListener{
                 startActivity(intentGetPassword);
                 break;
         }
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            if (getCurrentFocus() != null && getCurrentFocus().getWindowToken() != null) {
+                manager.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), InputMethodManager.HIDE_NOT_ALWAYS);
+            }
+        }
+        return super.onTouchEvent(event);
     }
 }

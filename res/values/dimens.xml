@@ -10,6 +10,13 @@
     <dimen name="ldrawer_middleBarArrowSize">16dp</dimen>
     <dimen name="navdrawer_width">260dp</dimen>
 
+    <!-- pulltorefresh -->
+    <dimen name="indicator_right_padding">10dp</dimen>
+    <dimen name="indicator_corner_radius">12dp</dimen>
+    <dimen name="indicator_internal_padding">4dp</dimen>
+    <dimen name="header_footer_left_right_padding">24dp</dimen>
+    <dimen name="header_footer_top_bottom_padding">12dp</dimen>
+
     <!--登录-->
     <dimen name="login_logo_w">180dp</dimen>
     <dimen name="login_logo_h">180dp</dimen>
@@ -21,4 +28,12 @@
     <!--头部-->
     <dimen name="actionbar_text_size">20sp</dimen>
     <dimen name="actionbar_height">50dp</dimen>
+
+    <!--相册-->
+    <dimen name="album_width">300dp</dimen>
+    <dimen name="album_height">300dp</dimen>
+    
+    <!--通讯录-->
+    <dimen name="contacts_header">60dp</dimen>
+    <dimen name="contacts_call">40dp</dimen>
 </resources>
